@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 func Spider(url string) {
@@ -26,5 +27,7 @@ func Spider(url string) {
 		return
 	}
 
-	fmt.Println("body: ", string(body))
+	// fmt.Println("body: ", string(body))
+	numLinks := strings.Count(string(body), "<a")
+	fmt.Printf("homepage has %d links!\n", numLinks)
 }
